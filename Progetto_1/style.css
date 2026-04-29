@@ -20,22 +20,22 @@ a{
 
 body{
     font-family: 'Poppins', sans-serif;
-background-color: #18181b;
+    background-color: #18181b;
 }
-
 
 nav{
     max-width: 1200px;
     margin: auto;
-    padding:2rem 1rem ;
+    padding: 1.5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
+    position: relative;
 }
 
 .nav-logo {
-    max-width: 100px;
+    max-width: 70px;
 }
 
 .nav-links{
@@ -109,7 +109,7 @@ header .content h4{
 }
 
 header .content h1{
-    color: #fff ;
+    color: #fff;
     margin-bottom: 1rem;
     font-size: 3rem;
     font-weight: 700;
@@ -176,7 +176,6 @@ section .header{
     background-color: #323232;
     border-color: #fff;
 }
-
 
 .features .card span{
     display: inline-block;
@@ -347,11 +346,52 @@ footer .column > a:hover{
     text-align: center;
 }
 
-@media (width < 900px){
-    .nav-links{
-        display: none;
+/* ── Hamburger ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 999;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ── Media 900px ── */
+@media (max-width: 900px) {
+
+    .hamburger {
+        display: flex;
     }
-    
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #0a0a0a;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 998;
+    }
+
+    .nav-links li {
+        padding: 12px 0;
+    }
+
+    .nav-links.aperto {
+        display: flex;
+    }
+
     header{
         grid-template-columns: repeat(1, 1fr);
     }
@@ -373,7 +413,8 @@ footer .column > a:hover{
     }
 }
 
-@media(width < 600px){
+/* ── Media 600px ── */
+@media (max-width: 600px) {
     header .image::before{
         display: none;
     }
@@ -387,6 +428,6 @@ footer .column > a:hover{
     }
 
     footer{
-        grid-template-columns: repeat(1fr, 150px);
+        grid-template-columns: 1fr;
     }
 }

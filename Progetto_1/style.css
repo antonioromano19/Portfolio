@@ -390,7 +390,7 @@ footer .column > a:hover{
     flex-direction: column;
     gap: 0;
     position: absolute;
-    top: 100px;  /* prova con questo, se non basta prova 110px o 120px */
+    top: 100px;  
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.05);

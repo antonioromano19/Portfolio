@@ -366,6 +366,21 @@ footer .column > a:hover{
 /* ── Media 900px ── */
 @media (max-width: 900px) {
 
+    .btn {
+        display: none;  /* nasconde Hire Me su mobile */
+    }
+
+    .hamburger {
+        display: flex;
+        margin-left: auto;  /* spinge l'hamburger a destra */
+        margin-right: 1rem;
+    }
+    
+    .hamburger span {
+    width: 32px;   /* era 25px, aumentato */
+    height: 4px;   /* era 3px, leggermente più spesso */
+    }
+
     .hamburger {
         display: flex;
     }
@@ -375,7 +390,7 @@ footer .column > a:hover{
     flex-direction: column;
     gap: 0;
     position: absolute;
-    top: 80px;
+    top: 100px;  /* prova con questo, se non basta prova 110px o 120px */
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.05);

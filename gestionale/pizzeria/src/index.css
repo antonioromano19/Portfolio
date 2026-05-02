@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #FDF6EC;
+  color: #2C1810;
+}
+
+#root {
+  height: 100vh;
+}

@@ -14,8 +14,11 @@ Il sito include una panoramica delle tecnologie che utilizzo e dei progetti che 
 # N.B.
 
  1 I prezzi inseriti all'interno di questo progetto sono solo esempi quindi non sono reali di conseguenza anche i tasti "Acquista" sono finti.
+
  2 Presente versione Mobile.
+
  3 Tutti i tasti Navbar sono funzionanti compreso il tasto Home in basso a destra che riporta l'utente nella sezione alta del progetto.
+ 
  4 I tasti Social presenti nella sezione About sono tutti funzionanti.
 
 ## 🛠 Tecnologie utilizzate

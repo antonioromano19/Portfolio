@@ -1,16 +1,53 @@
-# React + Vite
+# 🍕 Gestionale Pizzeria Napoli
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un'applicazione web per la gestione completa di una pizzeria, costruita con React e Vite.
 
-Currently, two official plugins are available:
+> Progetto nato dalla mia esperienza diretta come pizzaiolo — ho voluto costruire lo strumento che avrei voluto avere durante il mio lavoro in pizzeria.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Demo live
 
-## React Compiler
+👉 [Apri il gestionale](https://portfolio-lovat-kappa-79.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funzionalità
 
-## Expanding the ESLint configuration
+- **Dashboard** — Panoramica in tempo reale con incasso, ordini attivi e top pizze del giorno
+- **Tavoli** — Mappa visiva dei tavoli con stati (libero, occupato, conto richiesto)
+- **Ordini** — Gestione ordini con avanzamento stati (nuovo → in preparazione → pronto → servito)
+- **Menu** — Catalogo completo con pizze classiche, speciali, bevande e dolci
+- **Cassa** — Gestione conto per tavolo, calcolo IVA automatico, pagamento contanti o carta
+- **Statistiche** — Incasso giornaliero, settimanale e mensile con grafici
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tecnologie utilizzate
+
+- [React](https://react.dev/) — Libreria UI
+- [Vite](https://vitejs.dev/) — Build tool e dev server
+- [JavaScript ES6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- CSS inline con design system personalizzato
+- [Vercel](https://vercel.com/) — Deploy e hosting
+
+## 📦 Come avviare il progetto in locale
+
+```bash
+# Clona il repository
+git clone https://github.com/antonioromano19/Portfolio.git
+
+# Entra nella cartella
+cd Portfolio/gestionale/pizzeria
+
+# Installa le dipendenze
+npm install
+
+# Avvia il server di sviluppo
+npm run dev
+```
+
+Apri [http://localhost:5173](http://localhost:5173) nel browser.
+
+## 👨‍💻 Autore
+
+**Antonio Romano**
+- GitHub: [@antonioromano19](https://github.com/antonioromano19)
+
+---
+
+*Progetto realizzato come parte del mio portfolio di sviluppo web*

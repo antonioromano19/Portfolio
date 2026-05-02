@@ -11,6 +11,13 @@ Sito web personale che presenta le mie competenze, tecnologie e progetti come sv
 Layout web realizzato per presentare il mio profilo professionale come sviluppatore Full Stack.
 Il sito include una panoramica delle tecnologie che utilizzo e dei progetti che ho realizzato.
 
+# N.B.
+
+ 1 I prezzi inseriti all'interno di questo progetto sono solo esempi quindi non sono reali di conseguenza anche i tasti "Acquista" sono finti.
+ 2 Presente versione Mobile.
+ 3 Tutti i tasti Navbar sono funzionanti compreso il tasto Home in basso a destra che riporta l'utente nella sezione alta del progetto.
+ 4 I tasti Social presenti nella sezione About sono tutti funzionanti.
+
 ## 🛠 Tecnologie utilizzate
 
 - HTML5

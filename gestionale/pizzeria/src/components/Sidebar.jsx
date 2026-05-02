@@ -10,12 +10,12 @@ const voci = [
 function Sidebar({ paginaAttiva, setPaginaAttiva }) {
   return (
     <nav style={{
-      width: '200px', background: '#922B21', display: 'flex',
+      width: '200px', background: '#2E6B6B', display: 'flex',
       flexDirection: 'column', flexShrink: 0
     }}>
       <div style={{ padding: '20px 16px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', color: '#fff' }}>
-          🍕 Napoli
+          🍕 Sangio Bistrot
         </div>
         <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)' }}>
           Gestionale Pizzeria
@@ -32,7 +32,7 @@ function Sidebar({ paginaAttiva, setPaginaAttiva }) {
               padding: '12px 16px', cursor: 'pointer', fontSize: '13px',
               fontWeight: 500, color: paginaAttiva === v.id ? '#fff' : 'rgba(255,255,255,0.7)',
               background: paginaAttiva === v.id ? 'rgba(255,255,255,0.15)' : 'transparent',
-              borderLeft: paginaAttiva === v.id ? '3px solid #fff' : '3px solid transparent',
+              borderLeft: paginaAttiva === v.id ? '3px solid #C8B89A' : '3px solid transparent',
               transition: 'all 0.15s'
             }}
           >

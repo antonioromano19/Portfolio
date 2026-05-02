@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import OrderSuccess from './OrderSuccess'
 
 const ordini_iniziali = [
   { id: '#034', tavolo: 'Tav. 2', stato: 'nuovo', items: '4 Stagioni ×2, Tiramisù', time: '1 min', total: '€ 35' },
@@ -30,15 +31,21 @@ const badgeLabel = {
 function Ordini() {
   const [ordini, setOrdini] = useState(ordini_iniziali)
   const [filtro, setFiltro] = useState('tutti')
+  const [successo, setSuccesso] = useState(false)
+  const [msgSuccesso, setMsgSuccesso] = useState('')
 
-  const avanzaStato = (id) => {
-    setOrdini(ordini.map(o => {
-      if (o.id !== id) return o
-      const i = stati.indexOf(o.stato)
-      return i < stati.length - 1 ? { ...o, stato: stati[i + 1] } : o
-    }))
+const avanzaStato = (id) => {
+  const o = ordini.find(x => x.id === id)
+  const i = stati.indexOf(o.stato)
+  if (i < stati.length - 1) {
+    const nuovoStato = stati[i + 1]
+    setOrdini(ordini.map(x => x.id === id ? { ...x, stato: nuovoStato } : x))
+    if (nuovoStato === 'servito') {
+      setMsgSuccesso('Ordine servito! 🍕')
+      setSuccesso(true)
+    }
   }
-
+}
   const addOrdine = () => {
     const id = '#0' + (ordini.length + 35)
     setOrdini([{ id, tavolo: 'Tav. 3', stato: 'nuovo', items: 'Margherita, Acqua', time: 'adesso', total: '€ 12' }, ...ordini])
@@ -48,6 +55,7 @@ function Ordini() {
 
   return (
     <div style={{ padding: '20px 24px' }}>
+     {successo && <OrderSuccess messaggio={msgSuccesso} onFinish={() => setSuccesso(false)} />}
       <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
         {['tutti', ...stati].map(f => (
           <button

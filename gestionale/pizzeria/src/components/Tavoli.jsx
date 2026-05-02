@@ -1,9 +1,7 @@
-import { useState } from 'react'
-
 const statoColori = {
-  libero: { bg: '#E8F5E9', border: '#A5D6A7', color: '#2E7D32' },
-  occupato: { bg: '#FFF3E0', border: '#FFCC80', color: '#E65100' },
-  conto: { bg: '#F9EBEA', border: '#FFAB91', color: '#C0392B' },
+  libero: { bg: '#E8F5E9', color: '#2E7D32', border: '#A5D6A7' },
+  occupato: { bg: '#FFF8E1', color: '#F57F17', border: '#FFE082' },
+  conto: { bg: '#F3E5F5', color: '#6A1B9A', border: '#CE93D8' },
 }
 
 const statoLabel = {
@@ -12,33 +10,18 @@ const statoLabel = {
   conto: 'Conto',
 }
 
-const tavoli_iniziali = [
-  { n: 1, stato: 'libero', pax: 0, ordine: [] },
-  { n: 2, stato: 'occupato', pax: 4, ordine: ['Margherita ×2', '4 Stagioni', 'Tiramisù'] },
-  { n: 3, stato: 'libero', pax: 0, ordine: [] },
-  { n: 4, stato: 'occupato', pax: 2, ordine: ['Margherita ×2', 'Birra ×2'] },
-  { n: 5, stato: 'conto', pax: 6, ordine: ['Diavola ×2', 'Capricciosa ×2', 'Vino ×1'] },
-  { n: 6, stato: 'libero', pax: 0, ordine: [] },
-  { n: 7, stato: 'occupato', pax: 3, ordine: ['Diavola', 'Capricciosa', 'Acqua'] },
-  { n: 8, stato: 'libero', pax: 0, ordine: [] },
-  { n: 9, stato: 'occupato', pax: 2, ordine: ['Bufalina ×2', 'Birra ×2'] },
-  { n: 10, stato: 'libero', pax: 0, ordine: [] },
-  { n: 11, stato: 'occupato', pax: 2, ordine: ['Marinara', 'Vino'] },
-  { n: 12, stato: 'conto', pax: 4, ordine: ['Margherita ×3', 'Tiramisù ×2'] },
-  { n: 13, stato: 'libero', pax: 0, ordine: [] },
-  { n: 14, stato: 'occupato', pax: 5, ordine: ['4 Stagioni ×3', 'Coca ×3'] },
-  { n: 15, stato: 'libero', pax: 0, ordine: [] },
-]
-
-function Tavoli() {
-  const [tavoli, setTavoli] = useState(tavoli_iniziali)
+function Tavoli({ tavoli, setTavoli }) {
   const [selezionato, setSelezionato] = useState(null)
 
-  const occupaTavolo = (idx) => {
+  const cambiaSato = (idx, nuovoStato) => {
     const nuovi = [...tavoli]
-    nuovi[idx] = { ...nuovi[idx], stato: 'occupato', pax: 2 }
+    nuovi[idx] = { 
+      ...nuovi[idx], 
+      stato: nuovoStato,
+      pax: nuovoStato === 'libero' ? 0 : nuovi[idx].pax || 2,
+      ordine: nuovoStato === 'libero' ? [] : nuovi[idx].ordine
+    }
     setTavoli(nuovi)
-    setSelezionato(idx)
   }
 
   const tavolo = selezionato !== null ? tavoli[selezionato] : null
@@ -63,10 +46,10 @@ function Tavoli() {
               onClick={() => setSelezionato(i)}
               style={{
                 background: colori.bg,
-                border: `2px solid ${selezionato === i ? '#C0392B' : colori.border}`,
+                border: `2px solid ${selezionato === i ? '#2E6B6B' : colori.border}`,
                 borderRadius: '10px', padding: '12px 8px', textAlign: 'center',
                 cursor: 'pointer', transition: 'all 0.15s',
-                boxShadow: selezionato === i ? '0 0 0 3px rgba(192,57,43,0.15)' : 'none'
+                boxShadow: selezionato === i ? '0 0 0 3px rgba(46,107,107,0.2)' : 'none'
               }}
             >
               <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '22px', fontWeight: 700, color: colori.color }}>
@@ -84,21 +67,28 @@ function Tavoli() {
       </div>
 
       {tavolo && (
-        <div style={{ background: '#FFFDF9', border: '1px solid rgba(125,90,60,0.2)', borderRadius: '10px', padding: '16px' }}>
-          <div style={{ fontWeight: 500, marginBottom: '8px' }}>Tavolo {tavolo.n}</div>
-          {tavolo.stato === 'libero' ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#2E7D32' }}>
-              Tavolo libero
-              <button
-                onClick={() => occupaTavolo(selezionato)}
-                style={{ padding: '6px 14px', background: '#C0392B', color: '#fff', border: 'none', borderRadius: '7px', cursor: 'pointer', fontSize: '12px' }}
-              >
-                Occupa tavolo
+        <div style={{ background: '#FDFAF7', border: '1px solid rgba(180,160,130,0.3)', borderRadius: '10px', padding: '16px' }}>
+          <div style={{ fontWeight: 500, marginBottom: '12px', fontSize: '15px' }}>Tavolo {tavolo.n}</div>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            {tavolo.stato !== 'occupato' && (
+              <button onClick={() => cambiaSato(selezionato, 'occupato')} style={{ padding: '8px 16px', background: '#2E6B6B', color: '#fff', border: 'none', borderRadius: '7px', cursor: 'pointer', fontSize: '13px', fontFamily: 'inherit' }}>
+                🪑 Occupa
               </button>
-            </div>
-          ) : (
-            <div style={{ fontSize: '13px', color: '#7B5E52' }}>
-              <strong>{tavolo.pax} pax</strong> — {tavolo.ordine.join(', ')}
+            )}
+            {tavolo.stato !== 'conto' && tavolo.stato !== 'libero' && (
+              <button onClick={() => cambiaSato(selezionato, 'conto')} style={{ padding: '8px 16px', background: '#6A1B9A', color: '#fff', border: 'none', borderRadius: '7px', cursor: 'pointer', fontSize: '13px', fontFamily: 'inherit' }}>
+                💳 Richiedi conto
+              </button>
+            )}
+            {tavolo.stato !== 'libero' && (
+              <button onClick={() => cambiaSato(selezionato, 'libero')} style={{ padding: '8px 16px', background: '#F5F0EB', color: '#2C2C2C', border: '1px solid rgba(180,160,130,0.3)', borderRadius: '7px', cursor: 'pointer', fontSize: '13px', fontFamily: 'inherit' }}>
+                ✓ Libera tavolo
+              </button>
+            )}
+          </div>
+          {tavolo.ordine.length > 0 && (
+            <div style={{ marginTop: '12px', fontSize: '13px', color: '#9A8878' }}>
+              <strong>Ordine:</strong> {tavolo.ordine.join(', ')}
             </div>
           )}
         </div>
@@ -107,4 +97,5 @@ function Tavoli() {
   )
 }
 
+import { useState } from 'react'
 export default Tavoli

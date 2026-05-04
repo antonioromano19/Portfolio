@@ -136,7 +136,7 @@ export default function MobileCamera({ tavoli, setTavoli, ordini, setOrdini }) {
 
   return (
     <div style={{
-      width: '100%', maxWidth: '390px', margin: '0 auto',
+      width: '100%', maxWidth: '100%', 
       height: '100vh', background: '#F5F0EB', display: 'flex',
       flexDirection: 'column', fontFamily: 'DM Sans, sans-serif',
       position: 'relative', overflow: 'hidden'

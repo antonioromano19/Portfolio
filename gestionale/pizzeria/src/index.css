@@ -13,3 +13,8 @@ body {
 #root {
   height: 100vh;
 }
+ùhtml, body {
+  margin: 0;
+  padding: 0;
+  background: #2E6B6B;
+}

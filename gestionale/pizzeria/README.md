@@ -1,4 +1,4 @@
-# 🍕 Gestionale Pizzeria Napoli
+# 🍕 Gestionale Sangio Bistrot
 
 Un'applicazione web per la gestione completa di una pizzeria, costruita con React e Vite.
 
@@ -10,7 +10,7 @@ Un'applicazione web per la gestione completa di una pizzeria, costruita con Reac
 
 ## ✨ Funzionalità
 
-- **Dashboard** — Panoramica in tempo reale con incasso, ordini attivi e top pizze del giorno
+- **Dashboard** — Panoramica in tempo reale con incasso, ordini attivi e top pizze del giorno, della settimana e del mese
 - **Tavoli** — Mappa visiva dei tavoli con stati (libero, occupato, conto richiesto)
 - **Ordini** — Gestione ordini con avanzamento stati (nuovo → in preparazione → pronto → servito)
 - **Menu** — Catalogo completo con pizze classiche, speciali, bevande e dolci
